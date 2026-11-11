@@ -23,6 +23,38 @@ st.markdown('<div class="hero"><div class="eyebrow">Surveillance Accountability 
 c1,c2,c3=st.columns(3)
 c1.metric('Legal cases',len(docs));c2.metric('Evidence records',len(evidence));c3.metric('Accountability insights',len(insights))
 
+
+with st.expander("About this Observatory"):
+    st.markdown("""
+### About the Surveillance Accountability Observatory
+
+The Surveillance Accountability Observatory (SAO) is a research initiative examining governance and accountability questions arising from surveillance technologies.
+
+The **Accountability Gap Explorer** connects questions about surveillance practices to evidence from primary legal documents.
+
+#### How SAO differs from existing initiatives
+
+SAO complements resources such as the Electronic Frontier Foundation's Atlas of Surveillance. Rather than primarily cataloging surveillance deployments, SAO organizes evidence around specific questions concerning data retention, information sharing, legal authorization, and oversight.
+
+#### Methodology
+
+This proof-of-concept examines five legal cases, using one manually reviewed primary legal document per case.
+
+Seven standardized evidence fields are used: Technology, Vendor, Surveillance Purpose, Retention Period, Data Sharing, Legal Issues, and Oversight.
+
+The prototype contains **36 evidence records and 15 accountability insights**, each linked to supporting source evidence.
+
+#### Interpretive limitations
+
+Accountability questions are not findings of misconduct or legal violations.
+
+SAO distinguishes allegations from judicial findings and identifies unresolved governance questions.
+
+**Missing documentation is not proof that a safeguard does not exist.**
+
+All evidence in this prototype was manually reviewed. No AI-based extraction was used.
+    """)
+
 case_names=docs['case_name'].tolist()
 case=st.selectbox('Select a legal case',case_names)
 doc=docs.loc[docs.case_name==case].iloc[0]
